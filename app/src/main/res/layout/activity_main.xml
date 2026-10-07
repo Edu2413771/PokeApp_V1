@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/splash_pokeapp"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Barra de Búsqueda Adaptativa -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="4dp"
+            app:cardBackgroundColor="?attr/colorSurface"
+            android:layout_marginBottom="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@android:color/transparent"
+                android:gravity="center_vertical"
+                android:paddingStart="16dp"
+                android:paddingEnd="8dp"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp">
+
+                <EditText
+                    android:id="@+id/etPokemon"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:hint="Buscar por nombre o ID..."
+                    android:textColorHint="?android:attr/textColorSecondary"
+                    android:inputType="text"
+                    android:textColor="?android:attr/textColorPrimary"/>
+
+                <ImageButton
+                    android:id="@+id/btnConsultar"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:src="@android:drawable/ic_menu_search"
+                    app:tint="#4CAF50"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Tarjeta Principal del Pokémon Adaptativa -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="8dp"
+            app:cardBackgroundColor="?attr/colorSurface"
+            android:layout_marginBottom="24dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="24dp"
+                android:gravity="center_horizontal">
+
+                <TextView
+                    android:id="@+id/txtIdPokemon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="#---"
+                    android:textColor="?android:attr/textColorSecondary"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_gravity="start"/>
+
+                <TextView
+                    android:id="@+id/txtNombrePokemon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="POKÉMON"
+                    android:textColor="?android:attr/textColorPrimary"
+                    android:textSize="28sp"
+                    android:textStyle="bold"
+                    android:layout_gravity="start"
+                    android:layout_marginBottom="8dp"/>
+
+                <!-- Contenedor para las etiquetas de Tipos -->
+                <LinearLayout
+                    android:id="@+id/layoutTipos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_gravity="start"
+                    android:layout_marginBottom="16dp"/>
+
+                <!-- IMAGEN GRANDE (280dp) -->
+                <ImageView
+                    android:id="@+id/imgPokemon"
+                    android:layout_width="280dp"
+                    android:layout_height="280dp"
+                    android:scaleType="fitCenter"
+                    android:layout_marginBottom="8dp"/>
+
+                <!-- CONTENEDOR DE BOTONES: Shiny, Grito y Favorito -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:layout_marginBottom="16dp">
+
+                    <Button
+                        android:id="@+id/btnToggleShiny"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="✨ Shiny"
+                        android:textSize="12sp"
+                        android:backgroundTint="?attr/colorSurface"
+                        android:textColor="?android:attr/textColorPrimary"
+                        style="?attr/materialButtonOutlinedStyle"
+                        android:layout_marginEnd="8dp"/>
+
+                    <Button
+                        android:id="@+id/btnGrito"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🔊 Grito"
+                        android:textSize="12sp"
+                        android:backgroundTint="?attr/colorSurface"
+                        android:textColor="?android:attr/textColorPrimary"
+                        style="?attr/materialButtonOutlinedStyle"
+                        android:layout_marginEnd="16dp"/>
+
+                    <!-- BOTÓN FAVORITO -->
+                    <ImageButton
+                        android:id="@+id/btnFavorito"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:src="@android:drawable/btn_star_big_on"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        app:tint="#888888" />
+                </LinearLayout>
+
+                <!-- BARRA DE FORMAS ALTERNATIVAS -->
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scrollbars="none"
+                    android:layout_marginBottom="16dp">
+
+                    <LinearLayout
+                        android:id="@+id/layoutFormas"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center"
+                        android:visibility="gone">
+
+                        <Button android:id="@+id/btnFormaNormal" android:layout_width="wrap_content" android:layout_height="40dp" android:text="Normal" android:textSize="12sp" android:layout_marginEnd="8dp" android:backgroundTint="#888888" android:textColor="#FFFFFF"/>
+                        <Button android:id="@+id/btnFormaMega" android:layout_width="wrap_content" android:layout_height="40dp" android:text="Mega" android:textSize="12sp" android:layout_marginEnd="8dp" android:backgroundTint="#9C27B0" android:textColor="#FFFFFF"/>
+                        <Button android:id="@+id/btnFormaMegaX" android:layout_width="wrap_content" android:layout_height="40dp" android:text="Mega X" android:textSize="12sp" android:layout_marginEnd="8dp" android:backgroundTint="#2196F3" android:textColor="#FFFFFF"/>
+                        <Button android:id="@+id/btnFormaMegaY" android:layout_width="wrap_content" android:layout_height="40dp" android:text="Mega Y" android:textSize="12sp" android:layout_marginEnd="8dp" android:backgroundTint="#E91E63" android:textColor="#FFFFFF"/>
+                        <Button android:id="@+id/btnFormaMegaZ" android:layout_width="wrap_content" android:layout_height="40dp" android:text="Mega Z" android:textSize="12sp" android:layout_marginEnd="8dp" android:backgroundTint="#009688" android:textColor="#FFFFFF"/>
+                        <Button android:id="@+id/btnFormaGmax" android:layout_width="wrap_content" android:layout_height="40dp" android:text="Gigamax" android:textSize="12sp" android:backgroundTint="#F44336" android:textColor="#FFFFFF"/>
+                    </LinearLayout>
+                </HorizontalScrollView>
+
+                <!-- PESTAÑAS -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="16dp">
+
+                    <LinearLayout android:id="@+id/btnTabStats" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="center">
+                        <TextView android:id="@+id/txtTabStats" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="ESTADÍSTICAS" android:textColor="#4CAF50" android:textStyle="bold" android:textSize="12sp" android:layout_marginBottom="4dp"/>
+                        <View android:id="@+id/lineTabStats" android:layout_width="match_parent" android:layout_height="3dp" android:background="#4CAF50"/>
+                    </LinearLayout>
+
+                    <LinearLayout android:id="@+id/btnTabInfo" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="center">
+                        <TextView android:id="@+id/txtTabInfo" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="INFORMACIÓN" android:textColor="?android:attr/textColorSecondary" android:textSize="12sp" android:layout_marginBottom="4dp"/>
+                        <View android:id="@+id/lineTabInfo" android:layout_width="match_parent" android:layout_height="3dp" android:background="@android:color/transparent"/>
+                    </LinearLayout>
+
+                    <LinearLayout android:id="@+id/btnTabMoves" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="center">
+                        <TextView android:id="@+id/txtTabMoves" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="MOVIMIENTOS" android:textColor="?android:attr/textColorSecondary" android:textSize="12sp" android:layout_marginBottom="4dp"/>
+                        <View android:id="@+id/lineTabMoves" android:layout_width="match_parent" android:layout_height="3dp" android:background="@android:color/transparent"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- ESTADÍSTICAS -->
+                <LinearLayout android:id="@+id/layoutEstadisticas" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+
+                    <!-- HP -->
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="8dp">
+                        <TextView android:layout_width="80dp" android:layout_height="wrap_content" android:text="HP" android:textColor="?android:attr/textColorSecondary" android:textStyle="bold"/>
+                        <ProgressBar android:id="@+id/pbHp" style="?android:attr/progressBarStyleHorizontal" android:layout_width="0dp" android:layout_weight="1" android:layout_height="10dp" android:max="255" android:progressDrawable="@drawable/progress_green"/>
+                        <TextView android:id="@+id/txtHpVal" android:layout_width="40dp" android:layout_height="wrap_content" android:text="--" android:gravity="end" android:textColor="?android:attr/textColorPrimary" android:textStyle="bold"/>
+                    </LinearLayout>
+
+                    <!-- Ataque -->
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="8dp">
+                        <TextView android:layout_width="80dp" android:layout_height="wrap_content" android:text="Ataque" android:textColor="?android:attr/textColorSecondary" android:textStyle="bold"/>
+                        <ProgressBar android:id="@+id/pbAtaque" style="?android:attr/progressBarStyleHorizontal" android:layout_width="0dp" android:layout_weight="1" android:layout_height="10dp" android:max="255" android:progressDrawable="@drawable/progress_red"/>
+                        <TextView android:id="@+id/txtAtaqueVal" android:layout_width="40dp" android:layout_height="wrap_content" android:text="--" android:gravity="end" android:textColor="?android:attr/textColorPrimary" android:textStyle="bold"/>
+                    </LinearLayout>
+
+                    <!-- Defensa -->
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="8dp">
+                        <TextView android:layout_width="80dp" android:layout_height="wrap_content" android:text="Defensa" android:textColor="?android:attr/textColorSecondary" android:textStyle="bold"/>
+                        <ProgressBar android:id="@+id/pbDefensa" style="?android:attr/progressBarStyleHorizontal" android:layout_width="0dp" android:layout_weight="1" android:layout_height="10dp" android:max="255" android:progressDrawable="@drawable/progress_blue"/>
+                        <TextView android:id="@+id/txtDefensaVal" android:layout_width="40dp" android:layout_height="wrap_content" android:text="--" android:gravity="end" android:textColor="?android:attr/textColorPrimary" android:textStyle="bold"/>
+                    </LinearLayout>
+
+                    <!-- Ataque Especial -->
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="8dp">
+                        <TextView android:layout_width="80dp" android:layout_height="wrap_content" android:text="Atq. Esp" android:textColor="?android:attr/textColorSecondary" android:textStyle="bold"/>
+                        <ProgressBar android:id="@+id/pbAtaqueEsp" style="?android:attr/progressBarStyleHorizontal" android:layout_width="0dp" android:layout_weight="1" android:layout_height="10dp" android:max="255" android:progressDrawable="@drawable/progress_purple"/>
+                        <TextView android:id="@+id/txtAtaqueEspVal" android:layout_width="40dp" android:layout_height="wrap_content" android:text="--" android:gravity="end" android:textColor="?android:attr/textColorPrimary" android:textStyle="bold"/>
+                    </LinearLayout>
+
+                    <!-- Defensa Especial -->
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="8dp">
+                        <TextView android:layout_width="80dp" android:layout_height="wrap_content" android:text="Def. Esp" android:textColor="?android:attr/textColorSecondary" android:textStyle="bold"/>
+                        <ProgressBar android:id="@+id/pbDefensaEsp" style="?android:attr/progressBarStyleHorizontal" android:layout_width="0dp" android:layout_weight="1" android:layout_height="10dp" android:max="255" android:progressDrawable="@drawable/progress_cyan"/>
+                        <TextView android:id="@+id/txtDefensaEspVal" android:layout_width="40dp" android:layout_height="wrap_content" android:text="--" android:gravity="end" android:textColor="?android:attr/textColorPrimary" android:textStyle="bold"/>
+                    </LinearLayout>
+
+                    <!-- Velocidad -->
+                    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="16dp">
+                        <TextView android:layout_width="80dp" android:layout_height="wrap_content" android:text="Velocidad" android:textColor="?android:attr/textColorSecondary" android:textStyle="bold"/>
+                        <ProgressBar android:id="@+id/pbVelocidad" style="?android:attr/progressBarStyleHorizontal" android:layout_width="0dp" android:layout_weight="1" android:layout_height="10dp" android:max="255" android:progressDrawable="@drawable/progress_yellow"/>
+                        <TextView android:id="@+id/txtVelocidadVal" android:layout_width="40dp" android:layout_height="wrap_content" android:text="--" android:gravity="end" android:textColor="?android:attr/textColorPrimary" android:textStyle="bold"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- INFORMACIÓN Y LÍNEA EVOLUTIVA -->
+                <LinearLayout android:id="@+id/layoutInfo" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:visibility="gone">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Descripción" android:textColor="?android:attr/textColorPrimary" android:textStyle="bold" android:textSize="16sp" android:layout_marginBottom="8dp"/>
+                    <TextView android:id="@+id/txtDescripcion" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Cargando datos desde la PokéAPI..." android:textColor="?android:attr/textColorSecondary" android:layout_marginBottom="16dp"/>
+
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Línea Evolutiva" android:textColor="?android:attr/textColorPrimary" android:textStyle="bold" android:textSize="16sp" android:layout_marginBottom="8dp"/>
+
+                    <!-- Carrusel de evoluciones -->
+                    <HorizontalScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:scrollbars="none">
+
+                        <LinearLayout
+                            android:id="@+id/layoutEvolucionesContainer"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"/>
+                    </HorizontalScrollView>
+                </LinearLayout>
+
+                <!-- MOVIMIENTOS -->
+                <LinearLayout android:id="@+id/layoutMovimientos" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:visibility="gone">
+                    <TextView android:id="@+id/txtMovimientos" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Cargando movimientos..." android:textColor="?android:attr/textColorSecondary" android:lineSpacingExtra="4dp"/>
+                </LinearLayout>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Botón Volver -->
+        <Button
+            android:id="@+id/btnVolverMenu"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:text="Volver al Menú"
+            android:backgroundTint="#FFCB05"
+            android:textColor="#333333"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+</ScrollView>

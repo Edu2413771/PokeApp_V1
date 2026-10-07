@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="320dp"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    app:cardCornerRadius="24dp"
+    app:cardElevation="12dp"
+    app:cardBackgroundColor="?attr/colorSurface">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/txtDialogTitulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="¡RESULTADO!"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="#4CAF50"
+            android:layout_marginBottom="8dp" />
+
+        <ImageView
+            android:id="@+id/imgGanadorDialog"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:layout_margin="8dp"/>
+
+        <TextView
+            android:id="@+id/txtNombreGanadorDialog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="¡GANASTE!"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:textColor="?android:attr/textColorPrimary"/>
+
+        <TextView
+            android:id="@+id/txtStatsGanadorDialog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Combate 1vs1\nTurnos totales: 4"
+            android:textSize="14sp"
+            android:gravity="center"
+            android:textColor="?android:attr/textColorSecondary"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- LOS 3 BOTONES APILADOS -->
+        <Button
+            android:id="@+id/btnRevancha"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="Revancha"
+            android:backgroundTint="#FFCB05"
+            android:textColor="#333333"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"/>
+
+        <Button
+            android:id="@+id/btnNuevoEquipo"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="Nuevo Equipo"
+            android:backgroundTint="#2196F3"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"/>
+
+        <Button
+            android:id="@+id/btnVolverMenuBatalla"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="Salir al Menú Principal"
+            android:backgroundTint="#F44336"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"/>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

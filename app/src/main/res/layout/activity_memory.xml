@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/splash_pokeapp"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- CABECERA -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="POKÉMEMORY"
+        android:textColor="#FFCB05"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:shadowColor="#333333"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="3"
+        android:layout_marginBottom="4dp"/>
+
+    <TextView
+        android:id="@+id/txtEstadisticasMemory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Turnos: 0  |  Pares: 0/6"
+        android:textColor="?android:attr/textColorPrimary"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginBottom="16dp"/>
+
+    <ProgressBar
+        android:id="@+id/pbLoadingMemory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="visible"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- TABLERO DE CARTAS (4 FILAS x 3 COLUMNAS) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <!-- Fila 1 -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:orientation="horizontal">
+            <androidx.cardview.widget.CardView android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="4dp" app:cardCornerRadius="12dp" app:cardBackgroundColor="?attr/colorSurface" app:cardElevation="4dp">
+                <ImageView android:id="@+id/imgCard0" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="fitCenter" android:padding="12dp" android:src="@android:drawable/ic_menu_help" app:tint="#888888"/>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="4dp" app:cardCornerRadius="12dp" app:cardBackgroundColor="?attr/colorSurface" app:cardElevation="4dp">
+                <ImageView android:id="@+id/imgCard1" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="fitCenter" android:padding="12dp" android:src="@android:drawable/ic_menu_help" app:tint="#888888"/>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="4dp" app:cardCornerRadius="12dp" app:cardBackgroundColor="?attr/colorSurface" app:cardElevation="4dp">
+                <ImageView android:id="@+id/imgCard2" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="fitCenter" android:padding="12dp" android:src="@android:drawable/ic_menu_help" app:tint="#888888"/>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+
+        <!-- Fila 2 -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:orientation="horizontal">
+            <androidx.cardview.widget.CardView android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="4dp" app:cardCornerRadius="12dp" app:cardBackgroundColor="?attr/colorSurface" app:cardElevation="4dp">
+                <ImageView android:id="@+id/imgCard3" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="fitCenter" android:padding="12dp" android:src="@android:drawable/ic_menu_help" app:tint="#888888"/>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="4dp" app:cardCornerRadius="12dp" app:cardBackgroundColor="?attr/colorSurface" app:cardElevation="4dp">
+                <ImageView android:id="@+id/imgCard4" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="fitCenter" android:padding="12dp" android:src="@android:drawable/ic_menu_help" app:tint="#888888"/>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="4dp" app:cardCornerRadius="12dp" app:cardBackgroundColor="?attr/colorSurface" app:cardElevation="4dp">
+                <ImageView android:id="@+id/imgCard5" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="fitCenter" android:padding="12dp" android:src="@android:drawable/ic_menu_help" app:tint="#888888"/>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+
+        <!-- Fila 3 -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:orientation="horizontal">
+            <androidx.cardview.widget.CardView android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="4dp" app:cardCornerRadius="12dp" app:cardBackgroundColor="?attr/colorSurface" app:cardElevation="4dp">
+                <ImageView android:id="@+id/imgCard6" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="fitCenter" android:padding="12dp" android:src="@android:drawable/ic_menu_help" app:tint="#888888"/>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="4dp" app:cardCornerRadius="12dp" app:cardBackgroundColor="?attr/colorSurface" app:cardElevation="4dp">
+                <ImageView android:id="@+id/imgCard7" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="fitCenter" android:padding="12dp" android:src="@android:drawable/ic_menu_help" app:tint="#888888"/>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="4dp" app:cardCornerRadius="12dp" app:cardBackgroundColor="?attr/colorSurface" app:cardElevation="4dp">
+                <ImageView android:id="@+id/imgCard8" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="fitCenter" android:padding="12dp" android:src="@android:drawable/ic_menu_help" app:tint="#888888"/>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+
+        <!-- Fila 4 -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:orientation="horizontal">
+            <androidx.cardview.widget.CardView android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="4dp" app:cardCornerRadius="12dp" app:cardBackgroundColor="?attr/colorSurface" app:cardElevation="4dp">
+                <ImageView android:id="@+id/imgCard9" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="fitCenter" android:padding="12dp" android:src="@android:drawable/ic_menu_help" app:tint="#888888"/>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="4dp" app:cardCornerRadius="12dp" app:cardBackgroundColor="?attr/colorSurface" app:cardElevation="4dp">
+                <ImageView android:id="@+id/imgCard10" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="fitCenter" android:padding="12dp" android:src="@android:drawable/ic_menu_help" app:tint="#888888"/>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:layout_margin="4dp" app:cardCornerRadius="12dp" app:cardBackgroundColor="?attr/colorSurface" app:cardElevation="4dp">
+                <ImageView android:id="@+id/imgCard11" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="fitCenter" android:padding="12dp" android:src="@android:drawable/ic_menu_help" app:tint="#888888"/>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Botones de Acción -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp">
+
+        <Button
+            android:id="@+id/btnVolverMemory"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="55dp"
+            android:text="Salir"
+            android:backgroundTint="#F44336"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:layout_marginEnd="8dp"/>
+
+        <Button
+            android:id="@+id/btnReiniciarMemory"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="55dp"
+            android:text="Reiniciar"
+            android:backgroundTint="#4CAF50"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"/>
+    </LinearLayout>
+</LinearLayout>

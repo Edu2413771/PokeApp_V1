@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Capa 1: El relleno de color pastel (Asignado en Java) -->
+    <item android:id="@android:id/background">
+        <vector android:width="90dp" android:height="100dp" android:viewportWidth="90" android:viewportHeight="100">
+            <path android:fillColor="#FFFFFF" android:pathData="M45,2 L88,25 L88,75 L45,98 L2,75 L2,25 Z" />
+        </vector>
+    </item>
+
+    <!-- Capa 2: El borde (Ahora usa el color de FONDO del sistema) -->
+    <item>
+        <vector android:width="90dp" android:height="100dp" android:viewportWidth="90" android:viewportHeight="100">
+            <!-- colorBackground es Blanco en modo claro y Gris oscuro/Negro en modo oscuro -->
+            <path android:fillColor="#00000000"
+                android:strokeColor="?android:attr/colorBackground"
+                android:strokeWidth="6"
+                android:pathData="M45,2 L88,25 L88,75 L45,98 L2,75 L2,25 Z" />
+        </vector>
+    </item>
+
+</layer-list>

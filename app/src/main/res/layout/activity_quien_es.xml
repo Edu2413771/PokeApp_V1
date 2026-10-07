@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/splash_pokeapp"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:gravity="center">
+
+    <!-- TÍTULO -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="¿QUIÉN ES ESE POKÉMON?"
+        android:textColor="#FFCB05"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:shadowColor="#333333"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="3"
+        android:layout_marginBottom="16dp"
+        android:gravity="center"/>
+
+    <!-- MARCADOR CONSTANTE EN PANTALLA -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="#44000000"
+        android:padding="8dp"
+        android:paddingHorizontal="16dp"
+        android:layout_marginBottom="16dp">
+
+        <TextView
+            android:id="@+id/txtRacha"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="🔥 Racha: 0"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/txtMultiplicador"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="⚡ x1.0"
+            android:textColor="#FFCB05"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
+    <!-- TARJETA SILUETA ADAPTATIVA -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="260dp"
+        android:layout_height="260dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="8dp"
+        app:cardBackgroundColor="?attr/colorSurface"
+        android:layout_marginBottom="24dp">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/txtCargando"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Buscando Pokémon..."
+                android:textColor="?android:attr/textColorSecondary"
+                android:textStyle="bold"
+                android:layout_gravity="center"/>
+
+            <ImageView
+                android:id="@+id/imgSilueta"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="16dp"
+                android:scaleType="fitCenter"/>
+        </FrameLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- BOTONES ADAPTATIVOS -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginBottom="16dp">
+
+        <Button
+            android:id="@+id/btnOpcion1"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="-"
+            android:layout_marginBottom="8dp"
+            android:backgroundTint="?attr/colorSurface"
+            android:textColor="?android:attr/textColorPrimary"/>
+
+        <Button
+            android:id="@+id/btnOpcion2"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="-"
+            android:layout_marginBottom="8dp"
+            android:backgroundTint="?attr/colorSurface"
+            android:textColor="?android:attr/textColorPrimary"/>
+
+        <Button
+            android:id="@+id/btnOpcion3"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="-"
+            android:layout_marginBottom="8dp"
+            android:backgroundTint="?attr/colorSurface"
+            android:textColor="?android:attr/textColorPrimary"/>
+
+        <Button
+            android:id="@+id/btnOpcion4"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="-"
+            android:backgroundTint="?attr/colorSurface"
+            android:textColor="?android:attr/textColorPrimary"/>
+    </LinearLayout>
+
+    <!-- BOTÓN SALIR -->
+    <Button
+        android:id="@+id/btnSalirJuego"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:text="Huir del combate"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#F44336"
+        android:textStyle="bold"/>
+
+</LinearLayout>

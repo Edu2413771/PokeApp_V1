@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E0F7FA">
+
+    <!-- SELECTOR DE POKÉMON (Centrado) -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardSelector"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_margin="24dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="8dp"
+        app:cardBackgroundColor="#FFFFFF">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- AQUÍ ESTABA EL ERROR, YA ESTÁ CORREGIDO -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Configurar Batalla"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:gravity="center"
+                android:textColor="#333333"
+                android:layout_marginBottom="12dp"/>
+
+            <RadioGroup
+                android:id="@+id/rgModoBatalla"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginBottom="12dp">
+                <RadioButton android:id="@+id/rb1v1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="1 vs 1" android:textColor="#333333" android:textStyle="bold" android:checked="true"/>
+                <RadioButton android:id="@+id/rb2v2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="2 vs 2" android:textColor="#333333" android:textStyle="bold" android:layout_marginStart="16dp"/>
+                <RadioButton android:id="@+id/rb3v3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="3 vs 3" android:textColor="#333333" android:textStyle="bold" android:layout_marginStart="16dp"/>
+            </RadioGroup>
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                <EditText android:id="@+id/etP1_1" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:hint="Tú: P1" android:textColorHint="#888888" android:textSize="14sp" android:textColor="#333333"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text=" VS " android:textColor="#FF0000" android:textStyle="bold" android:layout_gravity="center"/>
+                <EditText android:id="@+id/etR1_1" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:hint="Rival: P1" android:textColorHint="#888888" android:textSize="14sp" android:textColor="#333333"/>
+            </LinearLayout>
+
+            <LinearLayout android:id="@+id/layoutFila2" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:visibility="gone">
+                <EditText android:id="@+id/etP1_2" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:hint="Tú: P2" android:textColorHint="#888888" android:textSize="14sp" android:textColor="#333333"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text=" VS " android:textColor="#FF0000" android:textStyle="bold" android:layout_gravity="center"/>
+                <EditText android:id="@+id/etR1_2" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:hint="Rival: P2" android:textColorHint="#888888" android:textSize="14sp" android:textColor="#333333"/>
+            </LinearLayout>
+
+            <LinearLayout android:id="@+id/layoutFila3" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:visibility="gone">
+                <EditText android:id="@+id/etP1_3" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:hint="Tú: P3" android:textColorHint="#888888" android:textSize="14sp" android:textColor="#333333"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text=" VS " android:textColor="#FF0000" android:textStyle="bold" android:layout_gravity="center"/>
+                <EditText android:id="@+id/etR1_3" android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content" android:hint="Rival: P3" android:textColorHint="#888888" android:textSize="14sp" android:textColor="#333333"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="16dp">
+                <Button android:id="@+id/btnAleatorio" android:layout_width="0dp" android:layout_weight="1" android:layout_height="55dp" android:text="Aleatorio" android:backgroundTint="#9C27B0" android:textColor="#FFF" android:layout_marginEnd="4dp"/>
+                <Button android:id="@+id/btnCargarEmulador" android:layout_width="0dp" android:layout_weight="1" android:layout_height="55dp" android:text="¡A Luchar!" android:backgroundTint="#2196F3" android:textColor="#FFF" android:layout_marginStart="4dp"/>
+            </LinearLayout>
+
+            <Button android:id="@+id/btnSalirSelector" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Volver al Menú Principal" android:backgroundTint="#888888" android:textColor="#FFF" android:layout_marginTop="8dp"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- ARENA -->
+    <RelativeLayout
+        android:id="@+id/layoutArenaEmulador"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/layoutLog"
+        android:visibility="gone">
+
+        <!-- BOTÓN HUIR -->
+        <Button
+            android:id="@+id/btnHuirBatalla"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minHeight="40dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="12dp"
+            android:text="Huir"
+            android:backgroundTint="#F44336"
+            android:textColor="#FFF"
+            android:textStyle="bold"
+            android:elevation="8dp"/>
+
+        <!-- Pokemon Rival (Arriba Izquierda) -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardPoke2"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:layout_margin="16dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="4dp"
+            app:cardBackgroundColor="#FFFFFF">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="8dp">
+                <TextView android:id="@+id/txtNombreEmu2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="POKE 2" android:textStyle="bold" android:textColor="#333333"/>
+                <ProgressBar android:id="@+id/pbHpEmu2" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="10dp" android:max="100" android:progress="100" android:progressDrawable="@drawable/progress_green"/>
+                <TextView android:id="@+id/txtHpNumEmu2" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="100/100" android:textSize="12sp" android:gravity="end" android:textColor="#333333"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <ImageView
+            android:id="@+id/imgEmu2"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="55dp"
+            android:layout_marginEnd="16dp"/>
+
+        <!-- Pokemon Jugador (Abajo Izquierda) -->
+        <ImageView
+            android:id="@+id/imgEmu1"
+            android:layout_width="240dp"
+            android:layout_height="240dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="30dp"
+            android:layout_marginStart="8dp"/>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardPoke1"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginBottom="30dp"
+            android:layout_marginEnd="16dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="4dp"
+            app:cardBackgroundColor="#FFFFFF">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="8dp">
+                <TextView android:id="@+id/txtNombreEmu1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="POKE 1" android:textStyle="bold" android:textColor="#333333"/>
+                <ProgressBar android:id="@+id/pbHpEmu1" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="10dp" android:max="100" android:progress="100" android:progressDrawable="@drawable/progress_green"/>
+                <TextView android:id="@+id/txtHpNumEmu1" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="100/100" android:textSize="12sp" android:gravity="end" android:textColor="#333333"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </RelativeLayout>
+
+    <!-- REGISTRO Y CONTROLES (FIJOS ABAJO) -->
+    <LinearLayout
+        android:id="@+id/layoutLog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        android:background="#333333"
+        android:padding="12dp">
+
+        <TextView
+            android:id="@+id/txtLogEmulador"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:background="#FFFFFF"
+            android:padding="8dp"
+            android:text="Selecciona tus equipos arriba."
+            android:textColor="#000000"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"/>
+
+        <!-- PANEL DE 4 ATAQUES -->
+        <LinearLayout
+            android:id="@+id/panelAtaques"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                <Button android:id="@+id/btnAtaque1" android:layout_width="0dp" android:layout_weight="1" android:layout_height="55dp" android:text="Atq 1" android:textColor="#FFF" android:textSize="12sp" android:layout_marginEnd="4dp" android:textStyle="bold"/>
+                <Button android:id="@+id/btnAtaque2" android:layout_width="0dp" android:layout_weight="1" android:layout_height="55dp" android:text="Atq 2" android:textColor="#FFF" android:textSize="12sp" android:layout_marginStart="4dp" android:textStyle="bold"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginTop="4dp">
+                <Button android:id="@+id/btnAtaque3" android:layout_width="0dp" android:layout_weight="1" android:layout_height="55dp" android:text="Atq 3" android:textColor="#FFF" android:textSize="12sp" android:layout_marginEnd="4dp" android:textStyle="bold"/>
+                <Button android:id="@+id/btnAtaque4" android:layout_width="0dp" android:layout_weight="1" android:layout_height="55dp" android:text="Atq 4" android:textColor="#FFF" android:textSize="12sp" android:layout_marginStart="4dp" android:textStyle="bold"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/splash_pokeapp"> <!-- Aquí usamos tu fondo degradado -->
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <!-- Aquí usamos tu logo de Pikachu -->
+        <ImageView
+            android:id="@+id/imgSplashLogo"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:src="@drawable/icon_pokeapp"
+            android:contentDescription="Logo de PokeApp"
+            android:elevation="8dp"/> <!-- Le damos un poco de sombra -->
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:indeterminateTint="@color/white" /> <!-- Barra de carga en blanco para que contraste -->
+
+    </LinearLayout>
+
+</RelativeLayout>
