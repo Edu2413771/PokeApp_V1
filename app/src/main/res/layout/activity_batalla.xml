@@ -155,42 +155,46 @@
             android:textStyle="bold"
             android:layout_marginBottom="8dp"/>
 
-        <!-- Botones de Acción -->
+        <!-- Botones de Acción Hexagonales -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnAtacar"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="60dp"
                 android:text="LUCHAR"
+                android:background="@drawable/bg_hexagono2"
                 android:backgroundTint="#F44336"
                 android:textColor="#FFFFFF"
                 android:textStyle="bold"
                 android:layout_marginEnd="4dp"/>
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnCambiar"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="60dp"
                 android:text="POKÉMON"
+                android:background="@drawable/bg_hexagono2"
                 android:backgroundTint="#4CAF50"
                 android:textColor="#FFFFFF"
                 android:textStyle="bold"
                 android:layout_marginStart="4dp"/>
         </LinearLayout>
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnHuir"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="50dp"
             android:text="Huir de la batalla"
+            android:background="@drawable/bg_hexagono2"
             android:backgroundTint="#888888"
             android:textColor="#FFFFFF"
+            android:textStyle="bold"
             android:layout_marginTop="8dp"/>
     </LinearLayout>
 

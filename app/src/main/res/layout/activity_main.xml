@@ -107,7 +107,7 @@
                     android:scaleType="fitCenter"
                     android:layout_marginBottom="8dp"/>
 
-                <!-- CONTENEDOR DE BOTONES: Shiny, Grito y Favorito -->
+                <!-- CONTENEDOR DE BOTONES: Shiny, Grito y Favorito REGRESAN A LA NORMALIDAD -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -147,7 +147,7 @@
                         app:tint="#888888" />
                 </LinearLayout>
 
-                <!-- BARRA DE FORMAS ALTERNATIVAS -->
+                <!-- BARRA DE FORMAS ALTERNATIVAS REGRESAN A LA NORMALIDAD -->
                 <HorizontalScrollView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -270,12 +270,13 @@
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
-        <!-- Botón Volver -->
-        <Button
+        <!-- Botón Volver HEXAGONAL -->
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnVolverMenu"
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:text="Volver al Menú"
+            android:background="@drawable/bg_hexagono2"
             android:backgroundTint="#FFCB05"
             android:textColor="#333333"
             android:textStyle="bold"/>

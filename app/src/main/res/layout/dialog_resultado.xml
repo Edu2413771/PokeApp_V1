@@ -37,12 +37,13 @@
             android:gravity="center"
             android:layout_marginBottom="24dp" />
 
-        <!-- BOTÓN PARA CONTINUAR -->
-        <Button
+        <!-- BOTÓN HEXAGONAL PARA CONTINUAR -->
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnDialogSiguiente"
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:text="Siguiente Pokémon"
+            android:background="@drawable/bg_hexagono2"
             android:backgroundTint="#FFCB05"
             android:textColor="#333333"
             android:textStyle="bold" />

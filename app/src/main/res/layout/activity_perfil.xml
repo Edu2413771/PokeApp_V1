@@ -175,12 +175,14 @@
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
-    <Button
+    <!-- BOTÓN HEXAGONAL -->
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnVolverPerfil"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:text="Volver al Menú"
         android:textColor="#333333"
+        android:background="@drawable/bg_hexagono2"
         android:backgroundTint="#FFCB05"
         android:textStyle="bold"/>
 

@@ -75,7 +75,7 @@
         android:textColor="?android:attr/textColorSecondary"
         android:layout_marginBottom="8dp"/>
 
-    <!-- CUADRÍCULA CON LOS 18 TIPOS -->
+    <!-- CUADRÍCULA CON LOS 18 TIPOS HEXAGONALES -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -84,44 +84,44 @@
 
         <!-- Fila 1 -->
         <LinearLayout android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:orientation="horizontal">
-            <Button android:id="@+id/btnTypeNormal" android:text="Normal" android:backgroundTint="#A8A878" android:textColor="#FFFFFF" android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent" android:layout_margin="2dp" android:textSize="11sp" android:padding="0dp" android:alpha="0.4"/>
-            <Button android:id="@+id/btnTypeFire" android:text="Fuego" android:backgroundTint="#F08030" android:textColor="#FFFFFF" android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent" android:layout_margin="2dp" android:textSize="11sp" android:padding="0dp" android:alpha="0.4"/>
-            <Button android:id="@+id/btnTypeWater" android:text="Agua" android:backgroundTint="#6890F0" android:textColor="#FFFFFF" android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent" android:layout_margin="2dp" android:textSize="11sp" android:padding="0dp" android:alpha="0.4"/>
+            <androidx.appcompat.widget.AppCompatButton android:id="@+id/btnTypeNormal" android:text="Normal" android:background="@drawable/bg_hexagono2" android:backgroundTint="#A8A878" android:textColor="#FFFFFF" android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent" android:layout_margin="2dp" android:textSize="11sp" android:padding="0dp" android:alpha="0.4"/>
+            <androidx.appcompat.widget.AppCompatButton android:id="@+id/btnTypeFire" android:text="Fuego" android:background="@drawable/bg_hexagono2" android:backgroundTint="#F08030" android:textColor="#FFFFFF" android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent" android:layout_margin="2dp" android:textSize="11sp" android:padding="0dp" android:alpha="0.4"/>
+            <androidx.appcompat.widget.AppCompatButton android:id="@+id/btnTypeWater" android:text="Agua" android:background="@drawable/bg_hexagono2" android:backgroundTint="#6890F0" android:textColor="#FFFFFF" android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent" android:layout_margin="2dp" android:textSize="11sp" android:padding="0dp" android:alpha="0.4"/>
         </LinearLayout>
 
         <!-- Fila 2 -->
         <LinearLayout android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:orientation="horizontal">
-            <Button android:id="@+id/btnTypeGrass" android:text="Planta" android:backgroundTint="#78C850" android:textColor="#FFFFFF" android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent" android:layout_margin="2dp" android:textSize="11sp" android:padding="0dp" android:alpha="0.4"/>
-            <Button android:id="@+id/btnTypeElectric" android:text="Eléctrico" android:backgroundTint="#F8D030" android:textColor="#FFFFFF" android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent" android:layout_margin="2dp" android:textSize="11sp" android:padding="0dp" android:alpha="0.4"/>
-            <Button android:id="@+id/btnTypeIce" android:text="Hielo" android:backgroundTint="#98D8D8" android:textColor="#FFFFFF" android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent" android:layout_margin="2dp" android:textSize="11sp" android:padding="0dp" android:alpha="0.4"/>
+            <androidx.appcompat.widget.AppCompatButton android:id="@+id/btnTypeGrass" android:text="Planta" android:background="@drawable/bg_hexagono2" android:backgroundTint="#78C850" android:textColor="#FFFFFF" android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent" android:layout_margin="2dp" android:textSize="11sp" android:padding="0dp" android:alpha="0.4"/>
+            <androidx.appcompat.widget.AppCompatButton android:id="@+id/btnTypeElectric" android:text="Eléctrico" android:background="@drawable/bg_hexagono2" android:backgroundTint="#F8D030" android:textColor="#FFFFFF" android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent" android:layout_margin="2dp" android:textSize="11sp" android:padding="0dp" android:alpha="0.4"/>
+            <androidx.appcompat.widget.AppCompatButton android:id="@+id/btnTypeIce" android:text="Hielo" android:background="@drawable/bg_hexagono2" android:backgroundTint="#98D8D8" android:textColor="#FFFFFF" android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent" android:layout_margin="2dp" android:textSize="11sp" android:padding="0dp" android:alpha="0.4"/>
         </LinearLayout>
 
         <!-- Fila 3 -->
         <LinearLayout android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:orientation="horizontal">
-            <Button android:id="@+id/btnTypeFighting" android:text="Lucha" android:backgroundTint="#C03028" android:textColor="#FFFFFF" android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent" android:layout_margin="2dp" android:textSize="11sp" android:padding="0dp" android:alpha="0.4"/>
-            <Button android:id="@+id/btnTypePoison" android:text="Veneno" android:backgroundTint="#A040A0" android:textColor="#FFFFFF" android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent" android:layout_margin="2dp" android:textSize="11sp" android:padding="0dp" android:alpha="0.4"/>
-            <Button android:id="@+id/btnTypeGround" android:text="Tierra" android:backgroundTint="#E0C068" android:textColor="#FFFFFF" android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent" android:layout_margin="2dp" android:textSize="11sp" android:padding="0dp" android:alpha="0.4"/>
+            <androidx.appcompat.widget.AppCompatButton android:id="@+id/btnTypeFighting" android:text="Lucha" android:background="@drawable/bg_hexagono2" android:backgroundTint="#C03028" android:textColor="#FFFFFF" android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent" android:layout_margin="2dp" android:textSize="11sp" android:padding="0dp" android:alpha="0.4"/>
+            <androidx.appcompat.widget.AppCompatButton android:id="@+id/btnTypePoison" android:text="Veneno" android:background="@drawable/bg_hexagono2" android:backgroundTint="#A040A0" android:textColor="#FFFFFF" android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent" android:layout_margin="2dp" android:textSize="11sp" android:padding="0dp" android:alpha="0.4"/>
+            <androidx.appcompat.widget.AppCompatButton android:id="@+id/btnTypeGround" android:text="Tierra" android:background="@drawable/bg_hexagono2" android:backgroundTint="#E0C068" android:textColor="#FFFFFF" android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent" android:layout_margin="2dp" android:textSize="11sp" android:padding="0dp" android:alpha="0.4"/>
         </LinearLayout>
 
         <!-- Fila 4 -->
         <LinearLayout android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:orientation="horizontal">
-            <Button android:id="@+id/btnTypeFlying" android:text="Volador" android:backgroundTint="#A890F0" android:textColor="#FFFFFF" android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent" android:layout_margin="2dp" android:textSize="11sp" android:padding="0dp" android:alpha="0.4"/>
-            <Button android:id="@+id/btnTypePsychic" android:text="Psíquico" android:backgroundTint="#F85888" android:textColor="#FFFFFF" android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent" android:layout_margin="2dp" android:textSize="11sp" android:padding="0dp" android:alpha="0.4"/>
-            <Button android:id="@+id/btnTypeBug" android:text="Bicho" android:backgroundTint="#A8B820" android:textColor="#FFFFFF" android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent" android:layout_margin="2dp" android:textSize="11sp" android:padding="0dp" android:alpha="0.4"/>
+            <androidx.appcompat.widget.AppCompatButton android:id="@+id/btnTypeFlying" android:text="Volador" android:background="@drawable/bg_hexagono2" android:backgroundTint="#A890F0" android:textColor="#FFFFFF" android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent" android:layout_margin="2dp" android:textSize="11sp" android:padding="0dp" android:alpha="0.4"/>
+            <androidx.appcompat.widget.AppCompatButton android:id="@+id/btnTypePsychic" android:text="Psíquico" android:background="@drawable/bg_hexagono2" android:backgroundTint="#F85888" android:textColor="#FFFFFF" android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent" android:layout_margin="2dp" android:textSize="11sp" android:padding="0dp" android:alpha="0.4"/>
+            <androidx.appcompat.widget.AppCompatButton android:id="@+id/btnTypeBug" android:text="Bicho" android:background="@drawable/bg_hexagono2" android:backgroundTint="#A8B820" android:textColor="#FFFFFF" android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent" android:layout_margin="2dp" android:textSize="11sp" android:padding="0dp" android:alpha="0.4"/>
         </LinearLayout>
 
         <!-- Fila 5 -->
         <LinearLayout android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:orientation="horizontal">
-            <Button android:id="@+id/btnTypeRock" android:text="Roca" android:backgroundTint="#B8A038" android:textColor="#FFFFFF" android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent" android:layout_margin="2dp" android:textSize="11sp" android:padding="0dp" android:alpha="0.4"/>
-            <Button android:id="@+id/btnTypeGhost" android:text="Fantas." android:backgroundTint="#705898" android:textColor="#FFFFFF" android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent" android:layout_margin="2dp" android:textSize="11sp" android:padding="0dp" android:alpha="0.4"/>
-            <Button android:id="@+id/btnTypeDragon" android:text="Dragón" android:backgroundTint="#7038F8" android:textColor="#FFFFFF" android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent" android:layout_margin="2dp" android:textSize="11sp" android:padding="0dp" android:alpha="0.4"/>
+            <androidx.appcompat.widget.AppCompatButton android:id="@+id/btnTypeRock" android:text="Roca" android:background="@drawable/bg_hexagono2" android:backgroundTint="#B8A038" android:textColor="#FFFFFF" android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent" android:layout_margin="2dp" android:textSize="11sp" android:padding="0dp" android:alpha="0.4"/>
+            <androidx.appcompat.widget.AppCompatButton android:id="@+id/btnTypeGhost" android:text="Fantas." android:background="@drawable/bg_hexagono2" android:backgroundTint="#705898" android:textColor="#FFFFFF" android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent" android:layout_margin="2dp" android:textSize="11sp" android:padding="0dp" android:alpha="0.4"/>
+            <androidx.appcompat.widget.AppCompatButton android:id="@+id/btnTypeDragon" android:text="Dragón" android:background="@drawable/bg_hexagono2" android:backgroundTint="#7038F8" android:textColor="#FFFFFF" android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent" android:layout_margin="2dp" android:textSize="11sp" android:padding="0dp" android:alpha="0.4"/>
         </LinearLayout>
 
         <!-- Fila 6 -->
         <LinearLayout android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" android:orientation="horizontal">
-            <Button android:id="@+id/btnTypeDark" android:text="Sinies." android:backgroundTint="#705848" android:textColor="#FFFFFF" android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent" android:layout_margin="2dp" android:textSize="11sp" android:padding="0dp" android:alpha="0.4"/>
-            <Button android:id="@+id/btnTypeSteel" android:text="Acero" android:backgroundTint="#B8B8D0" android:textColor="#FFFFFF" android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent" android:layout_margin="2dp" android:textSize="11sp" android:padding="0dp" android:alpha="0.4"/>
-            <Button android:id="@+id/btnTypeFairy" android:text="Hada" android:backgroundTint="#EE99AC" android:textColor="#FFFFFF" android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent" android:layout_margin="2dp" android:textSize="11sp" android:padding="0dp" android:alpha="0.4"/>
+            <androidx.appcompat.widget.AppCompatButton android:id="@+id/btnTypeDark" android:text="Sinies." android:background="@drawable/bg_hexagono2" android:backgroundTint="#705848" android:textColor="#FFFFFF" android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent" android:layout_margin="2dp" android:textSize="11sp" android:padding="0dp" android:alpha="0.4"/>
+            <androidx.appcompat.widget.AppCompatButton android:id="@+id/btnTypeSteel" android:text="Acero" android:background="@drawable/bg_hexagono2" android:backgroundTint="#B8B8D0" android:textColor="#FFFFFF" android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent" android:layout_margin="2dp" android:textSize="11sp" android:padding="0dp" android:alpha="0.4"/>
+            <androidx.appcompat.widget.AppCompatButton android:id="@+id/btnTypeFairy" android:text="Hada" android:background="@drawable/bg_hexagono2" android:backgroundTint="#EE99AC" android:textColor="#FFFFFF" android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent" android:layout_margin="2dp" android:textSize="11sp" android:padding="0dp" android:alpha="0.4"/>
         </LinearLayout>
     </LinearLayout>
 
@@ -131,23 +131,25 @@
         android:orientation="horizontal"
         android:layout_marginTop="8dp">
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnVolverMaestro"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="55dp"
             android:text="Salir"
+            android:background="@drawable/bg_hexagono2"
             android:backgroundTint="#F44336"
             android:textColor="#FFFFFF"
             android:textStyle="bold"
             android:layout_marginEnd="8dp"/>
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnAdivinar"
             android:layout_width="0dp"
             android:layout_weight="2"
             android:layout_height="55dp"
             android:text="¡Adivinar!"
+            android:background="@drawable/bg_hexagono2"
             android:backgroundTint="#4CAF50"
             android:textColor="#FFFFFF"
             android:textStyle="bold"/>

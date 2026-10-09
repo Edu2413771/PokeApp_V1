@@ -32,11 +32,13 @@
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:spanCount="3"/>
 
-    <Button
+    <!-- BOTÓN HEXAGONAL -->
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnVolverFavoritos"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:text="Volver al Menú"
+        android:background="@drawable/bg_hexagono2"
         android:backgroundTint="#FFCB05"
         android:textColor="#333333"
         android:textStyle="bold"/>

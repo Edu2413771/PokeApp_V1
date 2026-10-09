@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="#E0F7FA">
 
-    <!-- SELECTOR DE POKÉMON (Centrado) -->
+    <!-- SELECTOR DE POKÉMON -->
     <androidx.cardview.widget.CardView
         android:id="@+id/cardSelector"
         android:layout_width="match_parent"
@@ -22,7 +22,6 @@
             android:orientation="vertical"
             android:padding="16dp">
 
-            <!-- AQUÍ ESTABA EL ERROR, YA ESTÁ CORREGIDO -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -68,11 +67,39 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_marginTop="16dp">
-                <Button android:id="@+id/btnAleatorio" android:layout_width="0dp" android:layout_weight="1" android:layout_height="55dp" android:text="Aleatorio" android:backgroundTint="#9C27B0" android:textColor="#FFF" android:layout_marginEnd="4dp"/>
-                <Button android:id="@+id/btnCargarEmulador" android:layout_width="0dp" android:layout_weight="1" android:layout_height="55dp" android:text="¡A Luchar!" android:backgroundTint="#2196F3" android:textColor="#FFF" android:layout_marginStart="4dp"/>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnAleatorio"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="55dp"
+                    android:text="Aleatorio"
+                    android:background="@drawable/bg_hexagono2"
+                    android:backgroundTint="#9C27B0"
+                    android:textColor="#FFF"
+                    android:layout_marginEnd="4dp"/>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnCargarEmulador"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="55dp"
+                    android:text="¡A Luchar!"
+                    android:background="@drawable/bg_hexagono2"
+                    android:backgroundTint="#2196F3"
+                    android:textColor="#FFF"
+                    android:layout_marginStart="4dp"/>
             </LinearLayout>
 
-            <Button android:id="@+id/btnSalirSelector" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Volver al Menú Principal" android:backgroundTint="#888888" android:textColor="#FFF" android:layout_marginTop="8dp"/>
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnSalirSelector"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="Volver al Menú Principal"
+                android:background="@drawable/bg_hexagono2"
+                android:backgroundTint="#888888"
+                android:textColor="#FFF"
+                android:layout_marginTop="8dp"/>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
@@ -84,23 +111,22 @@
         android:layout_above="@id/layoutLog"
         android:visibility="gone">
 
-        <!-- BOTÓN HUIR -->
-        <Button
+        <!-- BOTÓN HUIR HEXAGONAL -->
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnHuirBatalla"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:minHeight="40dp"
+            android:layout_width="80dp"
+            android:layout_height="45dp"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="12dp"
             android:layout_marginEnd="12dp"
             android:text="Huir"
+            android:background="@drawable/bg_hexagono2"
             android:backgroundTint="#F44336"
             android:textColor="#FFF"
             android:textStyle="bold"
             android:elevation="8dp"/>
 
-        <!-- Pokemon Rival (Arriba Izquierda) -->
         <androidx.cardview.widget.CardView
             android:id="@+id/cardPoke2"
             android:layout_width="160dp"
@@ -127,7 +153,6 @@
             android:layout_marginTop="55dp"
             android:layout_marginEnd="16dp"/>
 
-        <!-- Pokemon Jugador (Abajo Izquierda) -->
         <ImageView
             android:id="@+id/imgEmu1"
             android:layout_width="240dp"
@@ -156,7 +181,7 @@
         </androidx.cardview.widget.CardView>
     </RelativeLayout>
 
-    <!-- REGISTRO Y CONTROLES (FIJOS ABAJO) -->
+    <!-- REGISTRO Y ATAQUES HEXAGONALES -->
     <LinearLayout
         android:id="@+id/layoutLog"
         android:layout_width="match_parent"
@@ -178,7 +203,6 @@
             android:textStyle="bold"
             android:layout_marginBottom="8dp"/>
 
-        <!-- PANEL DE 4 ATAQUES -->
         <LinearLayout
             android:id="@+id/panelAtaques"
             android:layout_width="match_parent"
@@ -187,12 +211,12 @@
             android:visibility="gone">
 
             <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
-                <Button android:id="@+id/btnAtaque1" android:layout_width="0dp" android:layout_weight="1" android:layout_height="55dp" android:text="Atq 1" android:textColor="#FFF" android:textSize="12sp" android:layout_marginEnd="4dp" android:textStyle="bold"/>
-                <Button android:id="@+id/btnAtaque2" android:layout_width="0dp" android:layout_weight="1" android:layout_height="55dp" android:text="Atq 2" android:textColor="#FFF" android:textSize="12sp" android:layout_marginStart="4dp" android:textStyle="bold"/>
+                <androidx.appcompat.widget.AppCompatButton android:id="@+id/btnAtaque1" android:layout_width="0dp" android:layout_weight="1" android:layout_height="55dp" android:text="Atq 1" android:background="@drawable/bg_hexagono2" android:textColor="#FFF" android:textSize="12sp" android:layout_marginEnd="4dp" android:textStyle="bold"/>
+                <androidx.appcompat.widget.AppCompatButton android:id="@+id/btnAtaque2" android:layout_width="0dp" android:layout_weight="1" android:layout_height="55dp" android:text="Atq 2" android:background="@drawable/bg_hexagono2" android:textColor="#FFF" android:textSize="12sp" android:layout_marginStart="4dp" android:textStyle="bold"/>
             </LinearLayout>
-            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginTop="4dp">
-                <Button android:id="@+id/btnAtaque3" android:layout_width="0dp" android:layout_weight="1" android:layout_height="55dp" android:text="Atq 3" android:textColor="#FFF" android:textSize="12sp" android:layout_marginEnd="4dp" android:textStyle="bold"/>
-                <Button android:id="@+id/btnAtaque4" android:layout_width="0dp" android:layout_weight="1" android:layout_height="55dp" android:text="Atq 4" android:textColor="#FFF" android:textSize="12sp" android:layout_marginStart="4dp" android:textStyle="bold"/>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginTop="6dp">
+                <androidx.appcompat.widget.AppCompatButton android:id="@+id/btnAtaque3" android:layout_width="0dp" android:layout_weight="1" android:layout_height="55dp" android:text="Atq 3" android:background="@drawable/bg_hexagono2" android:textColor="#FFF" android:textSize="12sp" android:layout_marginEnd="4dp" android:textStyle="bold"/>
+                <androidx.appcompat.widget.AppCompatButton android:id="@+id/btnAtaque4" android:layout_width="0dp" android:layout_weight="1" android:layout_height="55dp" android:text="Atq 4" android:background="@drawable/bg_hexagono2" android:textColor="#FFF" android:textSize="12sp" android:layout_marginStart="4dp" android:textStyle="bold"/>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

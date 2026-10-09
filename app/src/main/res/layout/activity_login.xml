@@ -118,11 +118,13 @@
                         android:layout_marginBottom="24dp"
                         android:textStyle="bold"/>
 
-                    <Button
+                    <!-- BOTÓN HEXAGONAL -->
+                    <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/btnIniciarSesion"
                         android:layout_width="match_parent"
                         android:layout_height="55dp"
                         android:text="INICIAR SESIÓN"
+                        android:background="@drawable/bg_hexagono2"
                         android:backgroundTint="#4CAF50"
                         android:textColor="#FFFFFF"
                         android:textSize="16sp"
@@ -139,11 +141,13 @@
                     android:orientation="vertical"
                     android:visibility="gone">
 
-                    <Button
+                    <!-- BOTÓN HEXAGONAL -->
+                    <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/btnRegistrar"
                         android:layout_width="match_parent"
                         android:layout_height="55dp"
                         android:text="CREAR NUEVA CUENTA"
+                        android:background="@drawable/bg_hexagono2"
                         android:backgroundTint="#FFCB05"
                         android:textColor="#333333"
                         android:textSize="16sp"

@@ -51,32 +51,35 @@
             android:layout_marginTop="8dp"
             android:layout_marginBottom="16dp"/>
 
-        <!-- LOS 3 BOTONES APILADOS -->
-        <Button
+        <!-- BOTONES HEXAGONALES CON bg_hexagono2 -->
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnRevancha"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:text="Revancha"
+            android:background="@drawable/bg_hexagono2"
             android:backgroundTint="#FFCB05"
             android:textColor="#333333"
             android:textStyle="bold"
             android:layout_marginBottom="8dp"/>
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnNuevoEquipo"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:text="Nuevo Equipo"
+            android:background="@drawable/bg_hexagono2"
             android:backgroundTint="#2196F3"
             android:textColor="#FFFFFF"
             android:textStyle="bold"
             android:layout_marginBottom="8dp"/>
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnVolverMenuBatalla"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:text="Salir al Menú Principal"
+            android:background="@drawable/bg_hexagono2"
             android:backgroundTint="#F44336"
             android:textColor="#FFFFFF"
             android:textStyle="bold"/>

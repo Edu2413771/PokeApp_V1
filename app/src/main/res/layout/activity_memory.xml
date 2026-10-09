@@ -101,30 +101,32 @@
         </LinearLayout>
     </LinearLayout>
 
-    <!-- Botones de Acción -->
+    <!-- Botones de Acción HEXAGONALES -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginTop="16dp">
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnVolverMemory"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="55dp"
             android:text="Salir"
+            android:background="@drawable/bg_hexagono2"
             android:backgroundTint="#F44336"
             android:textColor="#FFFFFF"
             android:textStyle="bold"
             android:layout_marginEnd="8dp"/>
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnReiniciarMemory"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="55dp"
             android:text="Reiniciar"
+            android:background="@drawable/bg_hexagono2"
             android:backgroundTint="#4CAF50"
             android:textColor="#FFFFFF"
             android:textStyle="bold"/>

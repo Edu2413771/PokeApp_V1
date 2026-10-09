@@ -85,56 +85,61 @@
         </FrameLayout>
     </androidx.cardview.widget.CardView>
 
-    <!-- BOTONES ADAPTATIVOS -->
+    <!-- BOTONES ADAPTATIVOS HEXAGONALES -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_marginBottom="16dp">
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnOpcion1"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:text="-"
             android:layout_marginBottom="8dp"
+            android:background="@drawable/bg_hexagono2"
             android:backgroundTint="?attr/colorSurface"
             android:textColor="?android:attr/textColorPrimary"/>
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnOpcion2"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:text="-"
             android:layout_marginBottom="8dp"
+            android:background="@drawable/bg_hexagono2"
             android:backgroundTint="?attr/colorSurface"
             android:textColor="?android:attr/textColorPrimary"/>
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnOpcion3"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:text="-"
             android:layout_marginBottom="8dp"
+            android:background="@drawable/bg_hexagono2"
             android:backgroundTint="?attr/colorSurface"
             android:textColor="?android:attr/textColorPrimary"/>
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnOpcion4"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:text="-"
+            android:background="@drawable/bg_hexagono2"
             android:backgroundTint="?attr/colorSurface"
             android:textColor="?android:attr/textColorPrimary"/>
     </LinearLayout>
 
-    <!-- BOTÓN SALIR -->
-    <Button
+    <!-- BOTÓN SALIR HEXAGONAL -->
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnSalirJuego"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:text="Huir del combate"
         android:textColor="#FFFFFF"
+        android:background="@drawable/bg_hexagono2"
         android:backgroundTint="#F44336"
         android:textStyle="bold"/>
 
