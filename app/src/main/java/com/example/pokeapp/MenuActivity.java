@@ -58,6 +58,10 @@ public class MenuActivity extends AppCompatActivity {
 
     private String miIDLimpio = "";
 
+    // CANDADOS DE SEGURIDAD PARA EL BUG FANTASMA
+    private boolean escuchandoRetos = false;
+    private Dialog dialogoRetoActual = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -140,15 +144,15 @@ public class MenuActivity extends AppCompatActivity {
                 }
 
                 @Override
-                public void onCancelled(@NonNull DatabaseError error) {
-                    Toast.makeText(MenuActivity.this, "Error al cargar perfil de Firebase", Toast.LENGTH_SHORT).show();
-                }
+                public void onCancelled(@NonNull DatabaseError error) {}
             });
         }
     }
 
     private void iniciarEscuchaDeRetos() {
-        if (miIDLimpio.isEmpty()) return;
+        // Candado 1: Evita poner múltiples radares si el perfil se actualiza
+        if (miIDLimpio.isEmpty() || escuchandoRetos) return;
+        escuchandoRetos = true;
 
         dbRefPvP.child(miIDLimpio).addValueEventListener(new ValueEventListener() {
             @Override
@@ -168,23 +172,30 @@ public class MenuActivity extends AppCompatActivity {
         });
     }
 
-    // EL NUEVO DIÁLOGO PERSONALIZADO CON ESTILO
     private void mostrarDialogoReto(String idRetador, String nombreRetador, int modo) {
-        Dialog dialog = new Dialog(this);
-        dialog.setContentView(R.layout.dialog_reto);
-        if (dialog.getWindow() != null) {
-            dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        }
-        dialog.setCancelable(false);
+        // Candado 2: Si el diálogo ya está abierto, no lo abras encima de otro
+        if (dialogoRetoActual != null && dialogoRetoActual.isShowing()) return;
 
-        TextView txtMensaje = dialog.findViewById(R.id.txtMensajeReto);
-        Button btnAceptar = dialog.findViewById(R.id.btnAceptarReto);
-        Button btnRechazar = dialog.findViewById(R.id.btnRechazarReto);
+        dialogoRetoActual = new Dialog(this);
+        dialogoRetoActual.setContentView(R.layout.dialog_reto);
+        if (dialogoRetoActual.getWindow() != null) {
+            dialogoRetoActual.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        }
+        dialogoRetoActual.setCancelable(false);
+
+        TextView txtMensaje = dialogoRetoActual.findViewById(R.id.txtMensajeReto);
+        Button btnAceptar = dialogoRetoActual.findViewById(R.id.btnAceptarReto);
+        Button btnRechazar = dialogoRetoActual.findViewById(R.id.btnRechazarReto);
 
         txtMensaje.setText("¡El Entrenador " + nombreRetador.toUpperCase() + " te ha desafiado a un combate " + modo + " vs " + modo + "!\n\n¿Estás listo?");
 
         btnAceptar.setOnClickListener(v -> {
-            dialog.dismiss();
+            // Candado 3 LA MAGIA: Le cambiamos el estado a Firebase INMEDIATAMENTE
+            // para que no vuelva a molestar al regresar.
+            dbRefPvP.child(miIDLimpio).child("estado").setValue("preparando");
+
+            dialogoRetoActual.dismiss();
+
             Intent intent = new Intent(MenuActivity.this, PvPActivity.class);
             intent.putExtra("ES_RETADO", true);
             intent.putExtra("ID_RETADOR", idRetador);
@@ -194,10 +205,10 @@ public class MenuActivity extends AppCompatActivity {
 
         btnRechazar.setOnClickListener(v -> {
             dbRefPvP.child(miIDLimpio).removeValue();
-            dialog.dismiss();
+            dialogoRetoActual.dismiss();
         });
 
-        dialog.show();
+        dialogoRetoActual.show();
     }
 
 

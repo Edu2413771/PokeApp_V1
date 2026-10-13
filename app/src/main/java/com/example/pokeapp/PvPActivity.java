@@ -1,7 +1,6 @@
 package com.example.pokeapp;
 
 import android.animation.ObjectAnimator;
-import android.app.AlertDialog;
 import android.app.Dialog;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
@@ -539,6 +538,7 @@ public class PvPActivity extends AppCompatActivity {
         }
     }
 
+    // REGISTRO EN EL HISTORIAL INCLUIDO AQUÍ
     private void terminarBatalla(String mensajeFinal, boolean gane) {
         if (batallaTerminada) return;
         batallaTerminada = true;
@@ -549,12 +549,17 @@ public class PvPActivity extends AppCompatActivity {
             dbRefPvP.child(idSalaActual).removeValue();
         }
 
+        String tituloHistorial = "Derrota en PvP";
+        if (gane) tituloHistorial = "Victoria en PvP";
+        if (mensajeFinal.contains("Huiste")) tituloHistorial = "Huida del PvP";
+        if (mensajeFinal.contains("tiempo")) tituloHistorial = "Tiempo Agotado";
+
+        String detalleHistorial = "Combate " + modoSeleccionado + " vs " + modoSeleccionado + " Multijugador.";
+        HistorialHelper.registrar("PvP", tituloHistorial, detalleHistorial);
+
         mostrarDialogoGanador(gane);
     }
 
-    // =======================================================
-    // NUEVO: EL DIÁLOGO DEL GANADOR RECICLADO
-    // =======================================================
     private void mostrarDialogoGanador(boolean jugadorGano) {
         Dialog dialog = new Dialog(this);
         dialog.setContentView(R.layout.dialog_ganador);
@@ -569,12 +574,9 @@ public class PvPActivity extends AppCompatActivity {
         Button btnNuevoEquipo = dialog.findViewById(R.id.btnNuevoEquipo);
         Button btnVolverMenu = dialog.findViewById(R.id.btnVolverMenuBatalla);
 
-        // Ocultamos la revancha porque en PvP requiere reconectar Firebase,
-        // lo más seguro es regresar a la sala o menú.
         btnRevancha.setVisibility(View.GONE);
         btnNuevoEquipo.setText("Volver a la Sala");
 
-        // Obtenemos al último Pokémon en pie para mostrar su foto
         int indexMi = Math.min(miIndice, miEquipo.size() - 1);
         int indexSu = Math.min(rivalIndice, equipoRival.size() - 1);
 
@@ -595,7 +597,7 @@ public class PvPActivity extends AppCompatActivity {
 
         btnNuevoEquipo.setOnClickListener(v -> {
             dialog.dismiss();
-            finish(); // Sale al menú o sala anterior para volver a invitar
+            finish();
         });
 
         btnVolverMenu.setOnClickListener(v -> {
