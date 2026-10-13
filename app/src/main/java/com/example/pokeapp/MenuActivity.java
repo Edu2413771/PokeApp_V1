@@ -1,10 +1,13 @@
 package com.example.pokeapp;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -50,6 +53,10 @@ public class MenuActivity extends AppCompatActivity {
 
     private PokeApiService service;
     private FirebaseAuth mAuth;
+    private DatabaseReference dbRefPvP;
+    private DatabaseReference dbRefEntrenadores;
+
+    private String miIDLimpio = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,13 +65,15 @@ public class MenuActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         service = ApiClient.getClient().create(PokeApiService.class);
+        dbRefPvP = FirebaseDatabase.getInstance().getReference("PvP_Batallas");
+        dbRefEntrenadores = FirebaseDatabase.getInstance().getReference("Entrenadores");
 
         enlazarVistas();
         configurarMenuSuperior();
         configurarBotonesPanal();
 
         cargarPokemonAleatorio();
-        conectarConPerfilFirebase();
+        conectarConPerfilFirebaseYEscucharRetos();
     }
 
     private void enlazarVistas() {
@@ -95,10 +104,15 @@ public class MenuActivity extends AppCompatActivity {
         btnMedallasMenu = findViewById(R.id.btnMedallas);
     }
 
-    private void conectarConPerfilFirebase() {
+    private String limpiarID(String idOriginal) {
+        if (idOriginal == null) return "";
+        return idOriginal.replace("#", "").trim();
+    }
+
+    private void conectarConPerfilFirebaseYEscucharRetos() {
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null) {
-            DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Entrenadores").child(currentUser.getUid());
+            DatabaseReference ref = dbRefEntrenadores.child(currentUser.getUid());
 
             ref.addValueEventListener(new ValueEventListener() {
                 @Override
@@ -115,6 +129,9 @@ public class MenuActivity extends AppCompatActivity {
 
                         txtTrainerId.setText("ID: " + idEntrenador);
 
+                        miIDLimpio = limpiarID(idEntrenador);
+                        iniciarEscuchaDeRetos();
+
                         String rango = (nivel < 5) ? "Novato" : (nivel < 10) ? "Experimentado" : "Maestro";
                         txtNivelEntrenador.setText("Nivel " + nivel + " - Entrenador " + rango);
                         txtMedallas.setText(medallas + " / 8 Medallas");
@@ -130,6 +147,60 @@ public class MenuActivity extends AppCompatActivity {
         }
     }
 
+    private void iniciarEscuchaDeRetos() {
+        if (miIDLimpio.isEmpty()) return;
+
+        dbRefPvP.child(miIDLimpio).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists() && "pendiente".equals(snapshot.child("estado").getValue(String.class))) {
+                    String idRetador = snapshot.child("retador").getValue(String.class);
+                    String nombreRetador = snapshot.child("nombreRetador").getValue(String.class);
+                    Integer modo = snapshot.child("modo").getValue(Integer.class);
+
+                    if(nombreRetador == null) nombreRetador = "Un Entrenador";
+                    if(modo == null) modo = 1;
+
+                    mostrarDialogoReto(idRetador, nombreRetador, modo);
+                }
+            }
+            @Override public void onCancelled(@NonNull DatabaseError error) {}
+        });
+    }
+
+    // EL NUEVO DIÁLOGO PERSONALIZADO CON ESTILO
+    private void mostrarDialogoReto(String idRetador, String nombreRetador, int modo) {
+        Dialog dialog = new Dialog(this);
+        dialog.setContentView(R.layout.dialog_reto);
+        if (dialog.getWindow() != null) {
+            dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        }
+        dialog.setCancelable(false);
+
+        TextView txtMensaje = dialog.findViewById(R.id.txtMensajeReto);
+        Button btnAceptar = dialog.findViewById(R.id.btnAceptarReto);
+        Button btnRechazar = dialog.findViewById(R.id.btnRechazarReto);
+
+        txtMensaje.setText("¡El Entrenador " + nombreRetador.toUpperCase() + " te ha desafiado a un combate " + modo + " vs " + modo + "!\n\n¿Estás listo?");
+
+        btnAceptar.setOnClickListener(v -> {
+            dialog.dismiss();
+            Intent intent = new Intent(MenuActivity.this, PvPActivity.class);
+            intent.putExtra("ES_RETADO", true);
+            intent.putExtra("ID_RETADOR", idRetador);
+            intent.putExtra("MODO_BATALLA", modo);
+            startActivity(intent);
+        });
+
+        btnRechazar.setOnClickListener(v -> {
+            dbRefPvP.child(miIDLimpio).removeValue();
+            dialog.dismiss();
+        });
+
+        dialog.show();
+    }
+
+
     private void configurarMenuSuperior() {
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null && currentUser.getEmail() != null) {
@@ -143,9 +214,7 @@ public class MenuActivity extends AppCompatActivity {
 
         navigationView.setNavigationItemSelectedListener(item -> {
             int id = item.getItemId();
-            if (id == R.id.nav_configuracion) {
-                Toast.makeText(MenuActivity.this, "Configuraciones", Toast.LENGTH_SHORT).show();
-            } else if (id == R.id.nav_cerrar_sesion) {
+            if (id == R.id.nav_cerrar_sesion) {
                 mAuth.signOut();
                 startActivity(new Intent(MenuActivity.this, LoginActivity.class));
                 finish();
@@ -162,7 +231,6 @@ public class MenuActivity extends AppCompatActivity {
         asignarColorHexagono(btnJefes, "#FFCCBC");
         asignarColorHexagono(btnFavoritos, "#FFF9C4");
         asignarColorHexagono(btnMedallasMenu, "#C8E6C9");
-
         asignarColorHexagono(btnVersus, "#FFECB3");
         asignarColorHexagono(btnTorre, "#B2DFDB");
         asignarColorHexagono(btnEmulator, "#D1C4E9");
@@ -175,14 +243,8 @@ public class MenuActivity extends AppCompatActivity {
         btnFavoritos.setOnClickListener(v -> startActivity(new Intent(MenuActivity.this, FavoritosActivity.class)));
         btnMemory.setOnClickListener(v -> startActivity(new Intent(MenuActivity.this, MemoryActivity.class)));
         btnHistorial.setOnClickListener(v -> startActivity(new Intent(MenuActivity.this, HistorialActivity.class)));
-
-        // ¡LA BATALLA ESTÁ ACTIVA!
-        btnVersus.setOnClickListener(v -> startActivity(new Intent(MenuActivity.this, BatallaActivity.class)));
-
+        btnVersus.setOnClickListener(v -> startActivity(new Intent(MenuActivity.this, PvPActivity.class)));
         btnEmulator.setOnClickListener(v -> startActivity(new Intent(MenuActivity.this, EmulatorActivity.class)));
-        btnTorre.setOnClickListener(v -> Toast.makeText(this, "Próximamente: Torre Pokémon", Toast.LENGTH_SHORT).show());
-        btnJefes.setOnClickListener(v -> Toast.makeText(this, "Próximamente: Jefes Pokémon", Toast.LENGTH_SHORT).show());
-        btnMedallasMenu.setOnClickListener(v -> Toast.makeText(this, "Próximamente: Medallas", Toast.LENGTH_SHORT).show());
     }
 
     private void asignarColorHexagono(Button boton, String colorHex) {
@@ -210,10 +272,7 @@ public class MenuActivity extends AppCompatActivity {
                     }
                 }
             }
-            @Override
-            public void onFailure(Call<Pokemon> call, Throwable t) {
-                txtNombreAleatorio.setText("Error al cargar");
-            }
+            @Override public void onFailure(Call<Pokemon> call, Throwable t) {}
         });
     }
 }

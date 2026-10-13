@@ -35,6 +35,7 @@
         <!-- PANTALLA NUEVA DEL COMBATE TRADICIONAL -->
         <activity android:name=".BatallaActivity" android:exported="false" />
         <activity android:name=".EmulatorActivity" android:exported="false" />
+        <activity android:name=".PvPActivity" android:exported="false" />
 
     </application>
 </manifest>

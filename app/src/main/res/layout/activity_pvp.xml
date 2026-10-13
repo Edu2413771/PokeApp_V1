@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E0F7FA">
+
+    <!-- PANTALLA DE EMPAREJAMIENTO -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardSelectorPvP"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_margin="24dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="8dp"
+        app:cardBackgroundColor="#FFFFFF">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Batalla Multijugador"
+                android:textStyle="bold"
+                android:textSize="22sp"
+                android:gravity="center"
+                android:textColor="#333333"
+                android:layout_marginBottom="8dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tu equipo se ajustará automáticamente a Nivel 50."
+                android:textSize="12sp"
+                android:gravity="center"
+                android:textColor="#888888"
+                android:layout_marginBottom="24dp"/>
+
+            <RadioGroup
+                android:id="@+id/rgModoBatalla"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginBottom="12dp">
+                <RadioButton android:id="@+id/rb1v1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="1 vs 1" android:textColor="#333333" android:textStyle="bold" android:checked="true"/>
+                <RadioButton android:id="@+id/rb2v2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="2 vs 2" android:textColor="#333333" android:textStyle="bold" android:layout_marginStart="16dp"/>
+                <RadioButton android:id="@+id/rb3v3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="3 vs 3" android:textColor="#333333" android:textStyle="bold" android:layout_marginStart="16dp"/>
+            </RadioGroup>
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                <EditText android:id="@+id/etP1_1" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Ingresa ID/Nombre de tu Pokémon 1" android:textColorHint="#888888" android:textSize="14sp" android:textColor="#333333"/>
+            </LinearLayout>
+
+            <LinearLayout android:id="@+id/layoutFila2" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:visibility="gone">
+                <EditText android:id="@+id/etP1_2" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Ingresa ID/Nombre de tu Pokémon 2" android:textColorHint="#888888" android:textSize="14sp" android:textColor="#333333"/>
+            </LinearLayout>
+
+            <LinearLayout android:id="@+id/layoutFila3" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:visibility="gone">
+                <EditText android:id="@+id/etP1_3" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Ingresa ID/Nombre de tu Pokémon 3" android:textColorHint="#888888" android:textSize="14sp" android:textColor="#333333"/>
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/etIdRivalPvP"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:hint="Ingresa el ID del Entrenador rival..."
+                android:textColorHint="#888888"
+                android:textColor="#333333"
+                android:background="?android:attr/colorBackground"
+                android:paddingHorizontal="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnDesafiarPvP"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:text="Lanzar Desafío"
+                android:background="@drawable/bg_hexagono2"
+                android:backgroundTint="#F44336"
+                android:textColor="#FFF"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnSalirPvP"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="Volver al Menú"
+                android:background="@drawable/bg_hexagono2"
+                android:backgroundTint="#888888"
+                android:textColor="#FFF"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- PANTALLA DE ESPERANDO RIVAL -->
+    <LinearLayout
+        android:id="@+id/layoutEsperandoRival"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#DD000000"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:translationZ="10dp"
+        android:visibility="gone">
+
+        <ProgressBar
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView
+            android:id="@+id/txtEstadoMatchmaking"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Esperando a que el rival acepte..."
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
+    <!-- ARENA PvP -->
+    <RelativeLayout
+        android:id="@+id/layoutArenaPvP"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/layoutLogPvP"
+        android:visibility="gone">
+
+        <!-- EL RELOJ DE LOS 7 MINUTOS -->
+        <TextView
+            android:id="@+id/txtTimerPvP"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
+            android:text="07:00"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="#333333"
+            android:background="@drawable/bg_hexagono2"
+            android:backgroundTint="#FFFFFF"
+            android:paddingHorizontal="24dp"
+            android:paddingVertical="4dp"
+            android:elevation="4dp"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnRendirsePvP"
+            android:layout_width="80dp"
+            android:layout_height="45dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="12dp"
+            android:text="Huir"
+            android:background="@drawable/bg_hexagono2"
+            android:backgroundTint="#F44336"
+            android:textColor="#FFF"
+            android:textStyle="bold"
+            android:elevation="8dp"/>
+
+        <!-- TARJETA RIVAL (AHORA DEBAJO DEL RELOJ) -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardPokeRivalPvP"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txtTimerPvP"
+            android:layout_alignParentStart="true"
+            android:layout_margin="16dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="4dp"
+            app:cardBackgroundColor="#FFFFFF">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="8dp">
+                <TextView android:id="@+id/txtNombreRivalPvP" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="RIVAL" android:textStyle="bold" android:textColor="#333333"/>
+                <ProgressBar android:id="@+id/pbHpRivalPvP" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="10dp" android:max="100" android:progress="100" android:progressDrawable="@drawable/progress_green"/>
+                <TextView android:id="@+id/txtHpNumRivalPvP" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="100/100" android:textSize="12sp" android:gravity="end" android:textColor="#333333"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <ImageView
+            android:id="@+id/imgRivalPvP"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_below="@id/txtTimerPvP"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="16dp"/>
+
+        <ImageView
+            android:id="@+id/imgJugadorPvP"
+            android:layout_width="240dp"
+            android:layout_height="240dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="30dp"
+            android:layout_marginStart="8dp"/>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardPokeJugadorPvP"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginBottom="30dp"
+            android:layout_marginEnd="16dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="4dp"
+            app:cardBackgroundColor="#FFFFFF">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="8dp">
+                <TextView android:id="@+id/txtNombreJugadorPvP" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="TÚ" android:textStyle="bold" android:textColor="#333333"/>
+                <ProgressBar android:id="@+id/pbHpJugadorPvP" style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="10dp" android:max="100" android:progress="100" android:progressDrawable="@drawable/progress_green"/>
+                <TextView android:id="@+id/txtHpNumJugadorPvP" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="100/100" android:textSize="12sp" android:gravity="end" android:textColor="#333333"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </RelativeLayout>
+
+    <!-- REGISTRO Y ATAQUES HEXAGONALES -->
+    <LinearLayout
+        android:id="@+id/layoutLogPvP"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        android:background="#333333"
+        android:padding="12dp">
+
+        <TextView
+            android:id="@+id/txtLogPvP"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:background="#FFFFFF"
+            android:padding="8dp"
+            android:text="Conectando con el servidor..."
+            android:textColor="#000000"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"/>
+
+        <LinearLayout
+            android:id="@+id/panelAtaquesPvP"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                <androidx.appcompat.widget.AppCompatButton android:id="@+id/btnAtq1PvP" android:layout_width="0dp" android:layout_weight="1" android:layout_height="55dp" android:text="Atq 1" android:background="@drawable/bg_hexagono2" android:textColor="#FFF" android:textSize="12sp" android:layout_marginEnd="4dp" android:textStyle="bold"/>
+                <androidx.appcompat.widget.AppCompatButton android:id="@+id/btnAtq2PvP" android:layout_width="0dp" android:layout_weight="1" android:layout_height="55dp" android:text="Atq 2" android:background="@drawable/bg_hexagono2" android:textColor="#FFF" android:textSize="12sp" android:layout_marginStart="4dp" android:textStyle="bold"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginTop="6dp">
+                <androidx.appcompat.widget.AppCompatButton android:id="@+id/btnAtq3PvP" android:layout_width="0dp" android:layout_weight="1" android:layout_height="55dp" android:text="Atq 3" android:background="@drawable/bg_hexagono2" android:textColor="#FFF" android:textSize="12sp" android:layout_marginEnd="4dp" android:textStyle="bold"/>
+                <androidx.appcompat.widget.AppCompatButton android:id="@+id/btnAtq4PvP" android:layout_width="0dp" android:layout_weight="1" android:layout_height="55dp" android:text="Atq 4" android:background="@drawable/bg_hexagono2" android:textColor="#FFF" android:textSize="12sp" android:layout_marginStart="4dp" android:textStyle="bold"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>
