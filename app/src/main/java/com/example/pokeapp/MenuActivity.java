@@ -150,7 +150,6 @@ public class MenuActivity extends AppCompatActivity {
     }
 
     private void iniciarEscuchaDeRetos() {
-        // Candado 1: Evita poner múltiples radares si el perfil se actualiza
         if (miIDLimpio.isEmpty() || escuchandoRetos) return;
         escuchandoRetos = true;
 
@@ -173,7 +172,6 @@ public class MenuActivity extends AppCompatActivity {
     }
 
     private void mostrarDialogoReto(String idRetador, String nombreRetador, int modo) {
-        // Candado 2: Si el diálogo ya está abierto, no lo abras encima de otro
         if (dialogoRetoActual != null && dialogoRetoActual.isShowing()) return;
 
         dialogoRetoActual = new Dialog(this);
@@ -190,8 +188,6 @@ public class MenuActivity extends AppCompatActivity {
         txtMensaje.setText("¡El Entrenador " + nombreRetador.toUpperCase() + " te ha desafiado a un combate " + modo + " vs " + modo + "!\n\n¿Estás listo?");
 
         btnAceptar.setOnClickListener(v -> {
-            // Candado 3 LA MAGIA: Le cambiamos el estado a Firebase INMEDIATAMENTE
-            // para que no vuelva a molestar al regresar.
             dbRefPvP.child(miIDLimpio).child("estado").setValue("preparando");
 
             dialogoRetoActual.dismiss();
@@ -256,6 +252,9 @@ public class MenuActivity extends AppCompatActivity {
         btnHistorial.setOnClickListener(v -> startActivity(new Intent(MenuActivity.this, HistorialActivity.class)));
         btnVersus.setOnClickListener(v -> startActivity(new Intent(MenuActivity.this, PvPActivity.class)));
         btnEmulator.setOnClickListener(v -> startActivity(new Intent(MenuActivity.this, EmulatorActivity.class)));
+
+        // ¡AQUÍ ESTÁ LA MAGIA DEL BOTÓN DE LA TORRE!
+        btnTorre.setOnClickListener(v -> startActivity(new Intent(MenuActivity.this, DraftTorreActivity.class)));
     }
 
     private void asignarColorHexagono(Button boton, String colorHex) {

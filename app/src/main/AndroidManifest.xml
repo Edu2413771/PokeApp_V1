@@ -14,28 +14,64 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PokeApp">
 
-        <activity android:name=".QuienEsActivity" android:exported="false" />
-        <activity android:name=".MenuActivity" android:exported="false" />
-        <activity android:name=".LoginActivity" android:exported="false" />
+        <!-- Fase 1 de la Torre: Selección de Equipo -->
+        <activity
+            android:name=".DraftTorreActivity"
+            android:exported="false" />
 
-        <activity android:name=".SplashActivity" android:exported="true">
+        <!-- Fase 2 de la Torre: Escalera Mortal Kombat (La agregamos de una vez) -->
+        <activity
+            android:name=".TorreActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".QuienEsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MenuActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SplashActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PerfilActivity"
+            android:exported="false" />
+        <activity
+            android:name=".FavoritosActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MaestroTiposActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MemoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".HistorialActivity"
+            android:exported="false" />
+        <activity
+            android:name=".BatallaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EmulatorActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PvPActivity"
+            android:exported="false" />
 
-        <activity android:name=".MainActivity" android:exported="false" />
-        <activity android:name=".PerfilActivity" android:exported="false" />
-        <activity android:name=".FavoritosActivity" android:exported="false" />
-        <activity android:name=".MaestroTiposActivity" android:exported="false" />
-        <activity android:name=".MemoryActivity" android:exported="false" />
-        <activity android:name=".HistorialActivity" android:exported="false" />
-
-        <!-- PANTALLA NUEVA DEL COMBATE TRADICIONAL -->
-        <activity android:name=".BatallaActivity" android:exported="false" />
-        <activity android:name=".EmulatorActivity" android:exported="false" />
-        <activity android:name=".PvPActivity" android:exported="false" />
-
+        <activity
+            android:name=".BatallaTorreActivity"
+            android:exported="false" />
     </application>
+
 </manifest>

@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0A0A14"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="24dp"
+        android:clipToPadding="false">
+
+        <Button
+            android:id="@+id/btnVolverTorre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="⬅ Abandonar"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#8B0000"
+            android:layout_gravity="start"
+            android:layout_marginBottom="16dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="LA TORRE CESBA"
+            android:textColor="#FFD700"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            android:shadowColor="#FF8C00"
+            android:shadowDx="2"
+            android:shadowDy="2"
+            android:shadowRadius="6"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="8 Líderes. 1 Destino."
+            android:textColor="#888899"
+            android:textSize="14sp"
+            android:textStyle="italic"
+            android:layout_marginBottom="32dp"/>
+
+        <!-- NIVEL 8 -->
+        <LinearLayout
+            android:id="@+id/cardNivel8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@drawable/bg_hexagono2"
+            android:padding="8dp"
+            android:gravity="center_vertical"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageView
+                android:id="@+id/imgNivel8"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginEnd="16dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/icon_pokeapp" />
+
+            <TextView
+                android:id="@+id/txtNivel8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                android:text="NIVEL 8"/>
+        </LinearLayout>
+
+        <View android:layout_width="6dp" android:layout_height="20dp" android:background="#333344"/>
+
+        <!-- NIVEL 7 -->
+        <LinearLayout
+            android:id="@+id/cardNivel7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@drawable/bg_hexagono2"
+            android:padding="8dp"
+            android:gravity="center_vertical"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageView
+                android:id="@+id/imgNivel7"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginEnd="16dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/icon_pokeapp" />
+
+            <TextView
+                android:id="@+id/txtNivel7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                android:text="NIVEL 7"/>
+        </LinearLayout>
+
+        <View android:layout_width="6dp" android:layout_height="20dp" android:background="#333344"/>
+
+        <!-- NIVEL 6 -->
+        <LinearLayout
+            android:id="@+id/cardNivel6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@drawable/bg_hexagono2"
+            android:padding="8dp"
+            android:gravity="center_vertical"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageView
+                android:id="@+id/imgNivel6"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginEnd="16dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/icon_pokeapp" />
+
+            <TextView
+                android:id="@+id/txtNivel6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                android:text="NIVEL 6"/>
+        </LinearLayout>
+
+        <View android:layout_width="6dp" android:layout_height="20dp" android:background="#333344"/>
+
+        <!-- NIVEL 5 -->
+        <LinearLayout
+            android:id="@+id/cardNivel5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@drawable/bg_hexagono2"
+            android:padding="8dp"
+            android:gravity="center_vertical"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageView
+                android:id="@+id/imgNivel5"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginEnd="16dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/icon_pokeapp" />
+
+            <TextView
+                android:id="@+id/txtNivel5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                android:text="NIVEL 5"/>
+        </LinearLayout>
+
+        <View android:layout_width="6dp" android:layout_height="20dp" android:background="#333344"/>
+
+        <!-- NIVEL 4 -->
+        <LinearLayout
+            android:id="@+id/cardNivel4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@drawable/bg_hexagono2"
+            android:padding="8dp"
+            android:gravity="center_vertical"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageView
+                android:id="@+id/imgNivel4"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginEnd="16dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/icon_pokeapp" />
+
+            <TextView
+                android:id="@+id/txtNivel4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                android:text="NIVEL 4"/>
+        </LinearLayout>
+
+        <View android:layout_width="6dp" android:layout_height="20dp" android:background="#333344"/>
+
+        <!-- NIVEL 3 -->
+        <LinearLayout
+            android:id="@+id/cardNivel3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@drawable/bg_hexagono2"
+            android:padding="8dp"
+            android:gravity="center_vertical"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageView
+                android:id="@+id/imgNivel3"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginEnd="16dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/icon_pokeapp" />
+
+            <TextView
+                android:id="@+id/txtNivel3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                android:text="NIVEL 3"/>
+        </LinearLayout>
+
+        <View android:layout_width="6dp" android:layout_height="20dp" android:background="#333344"/>
+
+        <!-- NIVEL 2 -->
+        <LinearLayout
+            android:id="@+id/cardNivel2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@drawable/bg_hexagono2"
+            android:padding="8dp"
+            android:gravity="center_vertical"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageView
+                android:id="@+id/imgNivel2"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginEnd="16dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/icon_pokeapp" />
+
+            <TextView
+                android:id="@+id/txtNivel2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                android:text="NIVEL 2"/>
+        </LinearLayout>
+
+        <View android:layout_width="6dp" android:layout_height="20dp" android:background="#333344"/>
+
+        <!-- NIVEL 1 -->
+        <LinearLayout
+            android:id="@+id/cardNivel1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@drawable/bg_hexagono2"
+            android:padding="8dp"
+            android:gravity="center_vertical"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageView
+                android:id="@+id/imgNivel1"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginEnd="16dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/icon_pokeapp" />
+
+            <TextView
+                android:id="@+id/txtNivel1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                android:text="NIVEL 1"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
